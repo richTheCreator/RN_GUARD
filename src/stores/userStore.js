@@ -15,24 +15,26 @@ class UserStore {
 
   load = async () => {
     const values = await AsyncStorage.getItem('user/authorized');
-    return JSON.parse(values) || {};
+    return JSON.parse(values) || false;
   };
 
   save = async (FBtoken) => {
     await AsyncStorage.setItem('user/authorized', JSON.stringify({ FBtoken }));
   };
 
-    remove = async () => {
-      await AsyncStorage.removeItem('user/authorized');
-    };
+  remove = async () => {
+    await AsyncStorage.removeItem('user/authorized');
+  };
 
-  @action signIn = async (FBtoken) => {
-    if (FBtoken) {
+  signIn = async (FBtoken) => {
+    console.warn('called!');
+    if (FBtoken.length > 0) {
       this.save(FBtoken);
       this.authorized = true;
+      return true;
     }
     // const { firstName, lastName } = await this.getUserData();
-    return true;
+    return false;
   };
 
   @action signUp = async (FBtoken) => {

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
-import { observer, inject } from 'mobx-react/native';
+import { observer } from 'mobx-react/native';
 import FBSDK from 'react-native-fbsdk';
 import Styles from './Styles';
 import UserStore from '../../stores/userStore';
@@ -16,10 +16,7 @@ const { LoginManager } = FBSDK;
 const window = Dimensions.get('window');
 
 @observer
-class SignIn extends Component {
-  constructor() {
-    super();
-  }
+class SignUp extends Component {
   componentDidMount() {
     console.warn('userStore', UserStore);
   }
@@ -41,7 +38,6 @@ class SignIn extends Component {
   }
 
   render() {
-    console.warn('props', this.props);
     return (
       <Grid style={Styles.container}>
         <Row
@@ -57,14 +53,14 @@ class SignIn extends Component {
               </Text>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback
-              onPress={this.props.onSignIn}
+              onPress={this.submitLogin}
             >
               <Text style={[Styles.fonts.tagline, { color: '#4392F1' }]}>
-                  Sign In with Facebook.
+                  Sign Up with Facebook.
               </Text>
             </TouchableWithoutFeedback>
             <Text style={Styles.fonts.tagline}>
-              {UserStore.authorized ? 'true' : 'false'}
+              User is Authorized ? {UserStore.authorized ? 'true' : 'false'}
             </Text>
           </Col>
           <View style={Styles.triangle} />
@@ -75,4 +71,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default SignUp;
