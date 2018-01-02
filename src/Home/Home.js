@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
-// import { LoginManager } from 'react-native-fbsdk';
+import UserStore from '../stores/userStore';
 import Styles from './Styles';
+import Colors from '../assets/Globals/Colors';
 
 const window = Dimensions.get('window');
 
@@ -19,28 +20,33 @@ class Home extends Component {
       // Actions.Home();
     }
   }
-
-  render() {
-    return (
-      <Grid style={Styles.container}>
-        <Row
-          style={[Styles.wrapper, { width: window.width, height: window.height }]}
-        >
-          <Col style={{ alignItems: 'center' }}>
-            <TouchableWithoutFeedback
-              onPress={Actions.pop}
-            >
-              <Text style={Styles.fonts.tagline}>
+ handleSignOut = () => {
+   UserStore.remove();
+   Actions.Landing();
+ }
+ render() {
+   return (
+     <Grid style={Styles.container}>
+       <Row
+         style={[Styles.wrapper, { width: window.width, height: window.height }]}
+       >
+         <Col style={{ alignItems: 'center' }}>
+           <Text style={Styles.fonts.tagline}>
                   Welcome home!
-              </Text>
-            </TouchableWithoutFeedback>
-          </Col>
-          <View style={Styles.triangle} />
-        </Row>
-      </Grid>
+           </Text>
+           <TouchableWithoutFeedback
+             onPress={this.handleSignOut}
+           >
+             <Text style={[Styles.fonts.tagline, { color: Colors.Blue }]}>
+                  Sign Out
+             </Text>
+           </TouchableWithoutFeedback>
+         </Col>
+       </Row>
+     </Grid>
 
-    );
-  }
+   );
+ }
 }
 
 export default Home;

@@ -9,15 +9,15 @@ import UserStore from './stores/userStore';
 const App = () => (
   <Router wrapBy={observer}>
     <Modal>
-      <Stack key="root">
-        <Stack key="Launch" initial component={Launch} hideNavBar on={UserStore.load} success="App" failure="onBoard" />
-        <Stack key="onBoard" hideNavBar>
+      <Scene key="root">
+        <Scene key="Launch" initial component={Launch} hideNavBar on={UserStore.load} success="App" failure="onBoard" />
+        <Scene key="onBoard" hideNavBar>
           <Scene key="Landing" panHandlers={null} initial component={Landing} />
-        </Stack>
-        <Stack key="App">
-          <Scene key="Home" component={Home} />
-        </Stack>
-      </Stack>
+        </Scene>
+        <Scene key="App" hideNavBar>
+          <Scene key="Home" panHandlers={null} component={Home} />
+        </Scene>
+      </Scene>
       {/*  Modals have to be outside of main stack */}
       <Scene
         key="SignIn"

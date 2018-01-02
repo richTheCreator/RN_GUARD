@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native';
-import { observable, action } from 'mobx';
+import { observable } from 'mobx';
 
 class UserStore {
   @observable uid = '';
@@ -15,6 +15,7 @@ class UserStore {
 
   load = async () => {
     const values = await AsyncStorage.getItem('user/authorized');
+    console.warn(JSON.parse(values));
     return JSON.parse(values) || false;
   };
 
@@ -24,11 +25,11 @@ class UserStore {
 
   remove = async () => {
     await AsyncStorage.removeItem('user/authorized');
+    this.authorized = false;
   };
 
   signIn = async (FBtoken) => {
-    console.warn('called!');
-    if (FBtoken.length > 0) {
+    if (FBtoken) {
       this.save(FBtoken);
       this.authorized = true;
       return true;
@@ -37,7 +38,7 @@ class UserStore {
     return false;
   };
 
-  @action signUp = async (FBtoken) => {
+  signUp = async (FBtoken) => {
     if (FBtoken) {
       this.save(FBtoken);
       this.authorized = true;
@@ -47,7 +48,7 @@ class UserStore {
     return true;
   };
 
-  @action logout = async () => {
+  logout = async () => {
     await this.remove();
     this.authorized = false;
     return true;

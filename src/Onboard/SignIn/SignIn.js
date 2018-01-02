@@ -8,30 +8,33 @@ import {
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
 import { observer, inject } from 'mobx-react/native';
-import FBSDK from 'react-native-fbsdk';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Styles from './Styles';
 import UserStore from '../../stores/userStore';
 
-const { LoginManager } = FBSDK;
+
 const window = Dimensions.get('window');
 
-@observer
-class SignIn extends Component {
-  constructor() {
-    super();
-  }
-  componentDidMount() {
-    console.warn('userStore', UserStore);
+@observer class SignIn extends Component {
+  componentWillUpdate() {
+    // waiting for access token to be set
+    if (UserStore.authorized) {
+      Actions.Home();
+    }
   }
 
-  submitLogin = () => {
+  fbLogin = () => {
     LoginManager.logInWithReadPermissions(['public_profile']).then(
       (result) => {
         if (result.isCancelled) {
           alert('Login cancelled');
         } else {
-          alert(`Login success with permissions: ${
-            result.grantedPermissions.toString()}`);
+          AccessToken.getCurrentAccessToken().then((data) => {
+            UserStore.signIn(data.accessToken);
+
+            // alert(`FB_TOKEN: ${data.accessToken}
+            //   FB_ID:${data.userID}`);
+          });
         }
       },
       (error) => {
@@ -41,7 +44,6 @@ class SignIn extends Component {
   }
 
   render() {
-    console.warn('props', this.props);
     return (
       <Grid style={Styles.container}>
         <Row
@@ -57,7 +59,7 @@ class SignIn extends Component {
               </Text>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback
-              onPress={this.props.onSignIn}
+              onPress={this.fbLogin}
             >
               <Text style={[Styles.fonts.tagline, { color: '#4392F1' }]}>
                   Sign In with Facebook.
