@@ -32,16 +32,20 @@ const Landing = () => (
         </Text>
       </Col>
       <Col style={[Styles.buttonWrapper, { width: window.width }]}>
-        <Row style={Styles.btnContainer}>
-          <Text style={Styles.fonts.btn}>
+        <TouchableWithoutFeedback
+          onPress={Actions.SignIn}
+        >
+          <Row style={Styles.btnContainer}>
+            <Text style={Styles.fonts.btn}>
             Sign In
-          </Text>
-          <Icon
-            name="arrow-right"
-            size={32}
-            color={Colors.Blue}
-          />
-        </Row>
+            </Text>
+            <Icon
+              name="arrow-right"
+              size={32}
+              color={Colors.Blue}
+            />
+          </Row>
+        </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
           onPress={() => Actions.push('SignIn')}
         >
