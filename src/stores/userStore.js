@@ -1,5 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import { observable } from 'mobx';
+import axios from 'axios';
+import { SIGNUP_URL } from './api';
 
 class UserStore {
   @observable uid = '';
@@ -28,6 +30,16 @@ class UserStore {
     this.authorized = false;
   };
 
+  createUser = async (FBtoken) => {
+    const config = {
+      headers: {
+        access_token: FBtoken
+      }
+    };
+    const testObj = { fullname: 'Richard Morales' };
+    return await axios.post(SIGNUP_URL, testObj, config);
+  }
+
   signIn = async (FBtoken) => {
     if (FBtoken) {
       this.save(FBtoken);
@@ -41,7 +53,10 @@ class UserStore {
   signUp = async (FBtoken) => {
     if (FBtoken) {
       this.save(FBtoken);
-      this.authorized = true;
+      this.createUser(FBtoken).then((data) => {
+        this.authorized = true;
+        console.warn('DATA_FROM_CREATE', data);
+      }).catch(err => console.warn('ERR_CREATING_USER:', err));
     }
     // call graphQL for more user info
     // save user info to mongo

@@ -33,7 +33,7 @@ const Landing = () => (
       </Col>
       <Col style={[Styles.buttonWrapper, { width: window.width }]}>
         <TouchableWithoutFeedback
-          onPress={Actions.SignIn}
+          onPress={() => Actions.push('SignIn')}
         >
           <Row style={Styles.btnContainer}>
             <Text style={Styles.fonts.btn}>
@@ -47,7 +47,7 @@ const Landing = () => (
           </Row>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
-          onPress={() => Actions.push('SignIn')}
+          onPress={() => Actions.push('SignUp')}
         >
           <Row style={Styles.btnContainer}>
             <Text style={Styles.fonts.btn}>
