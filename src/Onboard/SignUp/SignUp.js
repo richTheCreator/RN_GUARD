@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,
   Dimensions,
-  TouchableWithoutFeedback,
+  Image,
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
 import { observer } from 'mobx-react/native';
-import FBSDK from 'react-native-fbsdk';
-import Styles from './Styles';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import Logo from '../../assets/images/USER_SHIELD.png';
+import { Button } from '../../components/Common';
+import Styles from '../Landing/Styles';
 import UserStore from '../../stores/userStore';
+import Colors from '../../assets/Globals';
+import Icon from 'react-native-vector-icons/Feather';
 
-const { LoginManager } = FBSDK;
 const window = Dimensions.get('window');
 
-@observer
-class SignUp extends Component {
-  componentDidMount() {
-    console.warn('userStore', UserStore);
+@observer class SignUp extends Component {
+  componentWillUpdate() {
+    // waiting for access token to be set
+    console.warn('UPDATED', UserStore)
+    if (UserStore.authorized) {
+      console.warn('AUTHORIZED')
+      Actions.Home();
+    }
   }
 
-  submitLogin = () => {
+  fbLogin = () => {
     LoginManager.logInWithReadPermissions(['public_profile']).then(
       (result) => {
         if (result.isCancelled) {
           alert('Login cancelled');
         } else {
-          alert(`Login success with permissions: ${
-            result.grantedPermissions.toString()}`);
+          AccessToken.getCurrentAccessToken().then((data) => {
+            UserStore.signUp(data.accessToken);
+            // alert(`FB_TOKEN: ${data.accessToken}
+            //   FB_ID:${data.userID}`);
+          });
         }
       },
       (error) => {
@@ -40,30 +49,33 @@ class SignUp extends Component {
   render() {
     return (
       <Grid style={Styles.container}>
+        <Row style={Styles.modalHeader}>
+          <Icon
+            name="x"
+            color="#333845"
+            size={40}
+            onPress={Actions.pop}
+          />
+        </Row>
         <Row
           style={[Styles.wrapper, { width: window.width, height: window.height }]}
         >
           <Col style={{ alignItems: 'center' }}>
-            <TouchableWithoutFeedback
-              onPress={Actions.pop}
-              styles={{ marginBottom: 40 }}
-            >
-              <Text style={Styles.fonts.tagline}>
-                  Close Modal.
-              </Text>
-            </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback
-              onPress={this.submitLogin}
-            >
-              <Text style={[Styles.fonts.tagline, { color: '#4392F1' }]}>
-                  Sign Up with Facebook.
-              </Text>
-            </TouchableWithoutFeedback>
-            <Text style={Styles.fonts.tagline}>
-              User is Authorized ? {UserStore.authorized ? 'true' : 'false'}
+            <Image
+              style={{ height: 220, width: 200, marginBottom: 25 }}
+              source={Logo}
+              imageResizeMode="contain"
+            />
+            <Text style={Styles.fonts.appName}>
+            SIGN UP
             </Text>
+            <Text style={Styles.fonts.appName}>
+            {UserStore.authorized}
+            </Text>
+            <Button BGcolor="#3b5998" onPress={this.fbLogin}>
+              W/ FACEBOOK
+            </Button>
           </Col>
-          <View style={Styles.triangle} />
         </Row>
       </Grid>
 

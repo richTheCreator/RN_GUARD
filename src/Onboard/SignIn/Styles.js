@@ -32,23 +32,6 @@ const Styles = {
     alignItems: 'center',
     paddingBottom: 24,
   },
-  triangle: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 800,
-    borderTopWidth: 250,
-    borderRightColor: 'transparent',
-    borderTopColor: Colors.offWhite,
-    zIndex: -1,
-    transform: [
-      { rotate: '180deg' }
-    ]
-  },
   fonts: {
     tagline,
     btn,

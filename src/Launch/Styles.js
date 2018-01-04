@@ -16,7 +16,7 @@ const Styles = {
   },
   wrapper: {
     alignItems: 'center',
-    backgroundColor: '#FFF',
+    backgroundColor: Colors.Dark,
     justifyContent: 'center'
   },
   buttonWrapper: {

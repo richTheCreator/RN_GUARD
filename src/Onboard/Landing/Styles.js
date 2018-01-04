@@ -1,8 +1,16 @@
+import {
+  Dimensions,
+} from 'react-native';
 import { Colors, Fonts } from '../../assets/Globals';
 
-const tagline = {
-  ...Fonts.instructions,
-  textAlign: 'center'
+const window = Dimensions.get('window');
+
+const appName = {
+  textAlign: 'center',
+  fontFamily: 'Bungee-Regular',
+  fontSize: 52,
+  color: Colors.Dark,
+  marginBottom: 25
 };
 
 const btn = {
@@ -16,8 +24,10 @@ const Styles = {
   },
   wrapper: {
     alignItems: 'center',
-    backgroundColor: '#FFF',
-    justifyContent: 'center'
+    backgroundColor: '#F5F5F5',
+    justifyContent: 'center',
+    width: window.width,
+    height: window.height,
   },
   buttonWrapper: {
     flex: -1,
@@ -33,25 +43,20 @@ const Styles = {
     alignItems: 'center',
     paddingBottom: 24,
   },
-  triangle: {
+  modalHeader: {
+    flex: -1,
+    width: window.width,
+    zIndex: 1000,
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 0,
-    height: 0,
+    top: 40,
+    height: 60,
     backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 800,
-    borderTopWidth: 250,
-    borderRightColor: 'transparent',
-    borderTopColor: Colors.offWhite,
-    zIndex: -1,
-    transform: [
-      { rotate: '180deg' }
-    ]
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: 20
   },
   fonts: {
-    tagline,
+    appName,
     btn,
   }
 };

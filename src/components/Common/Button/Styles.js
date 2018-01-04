@@ -1,39 +1,27 @@
 import { Fonts, Colors } from '../../../assets/Globals';
 
-const BTNlight = {
-  ...Fonts.buttonWhite,
+const btn = {
+  ...Fonts.btn,
   paddingTop: 10,
   paddingBottom: 10,
+  paddingLeft: 15,
+  paddingRight: 15,
+  color: Colors.offWhite,
   alignSelf: 'center',
 };
-const BTNaccent = {
-  ...Fonts.buttonGreen,
-  paddingTop: 10,
-  paddingBottom: 10,
-  alignSelf: 'center',
-};
+
 const Styles = {
-  btnType: {
-    main: {
-      borderRadius: 5,
-      height: 45,
-      width: 150,
-      alignSelf: 'center',
-      shadowColor: '#000',
-      shadowOffset: { width: 2, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 5,
-    },
-    ghostButton: {
-      backgroundColor: Colors.offWhite,
-    },
-    buttonFill: {
-      backgroundColor: Colors.accent,
-    },
+  btnMain: {
+    borderRadius: 5,
+    marginBottom: 25,
+    flex: -1,
+    width: 300,
+    height: 55,
+    alignSelf: 'center',
+    justifyContent: 'center'
   },
   fonts: {
-    BTNlight,
-    BTNaccent
+    btn,
   }
 };
 

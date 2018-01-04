@@ -4,7 +4,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Logo from '../assets/images/Logo_w-gradient.png';
+import Logo from '../assets/images/RN_GUARD.png';
 import Styles from './Styles';
 
 const window = Dimensions.get('window');
@@ -16,8 +16,9 @@ const Launch = () => (
     >
       <Col style={{ alignItems: 'center' }}>
         <Image
-          style={{ height: 150, width: 150, marginBottom: 40 }}
+          style={{ height: 156, width: 142, marginBottom: 25 }}
           source={Logo}
+          imageResizeMode="contain"
         />
       </Col>
     </Row>

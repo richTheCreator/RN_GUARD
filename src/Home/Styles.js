@@ -2,7 +2,8 @@ import { Colors, Fonts } from '../assets/Globals';
 
 const tagline = {
   ...Fonts.instructions,
-  textAlign: 'center'
+  textAlign: 'center',
+  marginTop: 40,
 };
 
 const btn = {
@@ -10,6 +11,7 @@ const btn = {
   paddingRight: 16,
   textAlign: 'right'
 };
+
 const Styles = {
   container: {
     flex: 1,
@@ -32,22 +34,10 @@ const Styles = {
     alignItems: 'center',
     paddingBottom: 24,
   },
-  triangle: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 800,
-    borderTopWidth: 250,
-    borderRightColor: 'transparent',
-    borderTopColor: Colors.offWhite,
-    zIndex: -1,
-    transform: [
-      { rotate: '180deg' }
-    ]
+  alignCenter: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: -1
   },
   fonts: {
     tagline,
