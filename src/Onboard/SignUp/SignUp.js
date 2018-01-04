@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,
   Dimensions,
   Image,
-  StatusBar
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
@@ -22,7 +20,9 @@ const window = Dimensions.get('window');
 @observer class SignUp extends Component {
   componentWillUpdate() {
     // waiting for access token to be set
+    console.warn('UPDATED', UserStore)
     if (UserStore.authorized) {
+      console.warn('AUTHORIZED')
       Actions.Home();
     }
   }
@@ -49,7 +49,6 @@ const window = Dimensions.get('window');
   render() {
     return (
       <Grid style={Styles.container}>
-        <StatusBar />
         <Row style={Styles.modalHeader}>
           <Icon
             name="x"
@@ -69,6 +68,9 @@ const window = Dimensions.get('window');
             />
             <Text style={Styles.fonts.appName}>
             SIGN UP
+            </Text>
+            <Text style={Styles.fonts.appName}>
+            {UserStore.authorized}
             </Text>
             <Button BGcolor="#3b5998" onPress={this.fbLogin}>
               W/ FACEBOOK

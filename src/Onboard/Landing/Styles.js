@@ -25,7 +25,9 @@ const Styles = {
   wrapper: {
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: window.width,
+    height: window.height,
   },
   buttonWrapper: {
     flex: -1,

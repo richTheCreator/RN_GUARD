@@ -3,9 +3,11 @@ import {
   Text,
   View,
   Dimensions,
+  AsyncStorage,
   TouchableWithoutFeedback,
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import { persist, create } from 'mobx-persist';
 import { Actions } from 'react-native-router-flux';
 import { observer } from 'mobx-react/native';
 import UserStore from '../stores/userStore';
@@ -14,6 +16,8 @@ import Colors from '../assets/Globals/Colors';
 import { Avatar, Button } from '../components/Common';
 
 const window = Dimensions.get('window');
+const hydrate = create({ storage: AsyncStorage });
+hydrate('userData', UserStore)
 
 @observer class Home extends Component {
  handleSignOut = () => {

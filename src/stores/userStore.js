@@ -1,12 +1,13 @@
 import { AsyncStorage } from 'react-native';
 import { observable } from 'mobx';
+import { persist } from 'mobx-persist';
 import axios from 'axios';
 import { SIGNUP_URL, SUPER_SECRET_API } from './api';
 
 class UserStore {
   @observable uid = '';
   @observable authorized = false;
-  @observable userData = undefined;
+  @persist('object') @observable userData = undefined;
   /** ** SIGN IN FLOW *** */
 
   // make the call to the FBSDK - ( done in signUp component )
@@ -69,19 +70,19 @@ class UserStore {
   };
 
   callSecretRoute = async () => {
-    await this.load()
-      .then((FBtoken) => {
-        console.warn('FBtoken', FBtoken);
-        const config = {
-          headers: {
-            access_token: FBtoken.FBtoken
-          }
-        };
-        axios.get(SUPER_SECRET_API, config)
-          .then((data) => {
-            alert(data.data.message);
-          }).catch(err => console.warn('ERR_SECRET_ROUTE:', err));
+    const FBtoken = await this.load();
+    // .then((FBtoken) => {
+    // console.warn('FBtoken', FBtoken);
+    const config = {
+      headers: {
+        access_token: FBtoken.FBtoken
+      }
+    };
+    axios.get(SUPER_SECRET_API, config)
+      .then((data) => {
+        alert(data.data.message);
       }).catch(err => console.warn('ERR_SECRET_ROUTE:', err));
+    // }).catch(err => console.warn('ERR_SECRET_ROUTE:', err));
   }
 
   logout = async () => {
