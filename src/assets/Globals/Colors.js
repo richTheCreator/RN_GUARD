@@ -1,10 +1,8 @@
 const Colors = {
-  Green: '#59C9A5',
-  Purple: '#7B4B94',
-  Blue: '#4392F1',
-  offWhite: '#F6FAFD',
-  Grey: '#ADADAD',
-  Dark: '#61707D',
+  Green: '#1E9690',
+  Purple: '#824C71',
+  offWhite: '#F8F8F8',
+  Dark: '#333845',
   Black: '#34344A',
   Red: '#F06449',
 };

@@ -49,7 +49,7 @@ const small = {
   lineHeight: 18,
 };
 const btn = {
-  fontFamily: XTRA,
+  fontFamily: 'Bungee-Regular',
   fontSize: 24,
   color: Colors.Dark,
   letterSpacing: 0.8,
