@@ -21,7 +21,7 @@ hydrate('userData', UserStore)
 
 @observer class Home extends Component {
  handleSignOut = () => {
-   UserStore.remove();
+   UserStore.logout();
    Actions.Landing();
  }
 
@@ -45,11 +45,13 @@ hydrate('userData', UserStore)
              </Col>
            }
            <Button
+             BGcolor={Colors.Green}
              onPress={this.handleSignOut}
            >
              Sign Out
            </Button>
            <Button
+             BGcolor={Colors.Purple}
              onPress={this.handleApiCall}
            >
              Super Secret!

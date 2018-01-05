@@ -20,9 +20,8 @@ const window = Dimensions.get('window');
 @observer class SignUp extends Component {
   componentWillUpdate() {
     // waiting for access token to be set
-    console.warn('UPDATED', UserStore)
+    // console.warn('UPDATED', UserStore)
     if (UserStore.authorized) {
-      console.warn('AUTHORIZED')
       Actions.Home();
     }
   }
@@ -70,7 +69,7 @@ const window = Dimensions.get('window');
             SIGN UP
             </Text>
             <Text style={Styles.fonts.appName}>
-            {UserStore.authorized}
+              {UserStore.authorized}
             </Text>
             <Button BGcolor="#3b5998" onPress={this.fbLogin}>
               W/ FACEBOOK

@@ -1,9 +1,12 @@
 import { AsyncStorage } from 'react-native';
-import { observable } from 'mobx';
+import { observable, action, observer } from 'mobx';
+import { autobind } from 'core-decorators';
 import { persist } from 'mobx-persist';
 import axios from 'axios';
-import { SIGNUP_URL, SUPER_SECRET_API } from './api';
+import { SIGNUP_URL, SIGNIN_URL, SUPER_SECRET_API } from './api';
 
+// @observer
+@autobind
 class UserStore {
   @observable uid = '';
   @observable authorized = false;
@@ -37,18 +40,40 @@ class UserStore {
         access_token: FBtoken
       }
     };
-    // const testObj = { fullname: 'Richard Morales' };
-    return await axios.post(SIGNUP_URL, {}, config);
+    const fromSignUp = true;
+    return await axios.post(SIGNUP_URL, { fromSignUp }, config);
   }
 
-  signIn = async (FBtoken) => {
+  fetchUser = async (FBtoken) => {
+    const config = {
+      headers: {
+        access_token: FBtoken
+      }
+    };
+    return await axios.post(SIGNIN_URL, {}, config);
+  }
+  //
+  // signIn = async (FBtoken) => {
+  //   if (FBtoken) {
+  //     this.save(FBtoken);
+  //     this.authorized = true;
+  //     return true;
+  //   }
+  //   return false;
+  // };
+
+  @action signIn = async (FBtoken) => {
     if (FBtoken) {
-      this.save(FBtoken);
-      this.authorized = true;
-      return true;
+      this.fetchUser(FBtoken).then((data) => {
+        console.warn('USER_FETCHED', data.data.user);
+        this.userData = data.data.user;
+        this.save(FBtoken);
+        this.authorized = true;
+      }).catch(err => alert('Please "Sign Up" First'));
     }
-    // const { firstName, lastName } = await this.getUserData();
-    return false;
+    // call graphQL for more user info
+    // save user info to mongo
+    return true;
   };
 
   signUp = async (FBtoken) => {
@@ -58,7 +83,7 @@ class UserStore {
           alert('A user already exists with this info.');
           return;
         }
-        console.warn('NEW_USER_CREATED', data.data.user);
+        // console.warn('NEW_USER_CREATED', data.data.user);
         this.userData = data.data.user;
         this.save(FBtoken);
         this.authorized = true;

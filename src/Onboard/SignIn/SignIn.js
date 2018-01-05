@@ -22,7 +22,7 @@ const window = Dimensions.get('window');
   componentWillUpdate() {
     // waiting for access token to be set
     if (UserStore.authorized) {
-      Actions.Home();
+      Actions.reset();
     }
   }
 
@@ -33,7 +33,7 @@ const window = Dimensions.get('window');
           alert('Login cancelled');
         } else {
           AccessToken.getCurrentAccessToken().then((data) => {
-            UserStore.signUp(data.accessToken);
+            UserStore.signIn(data.accessToken);
             // alert(`FB_TOKEN: ${data.accessToken}
             //   FB_ID:${data.userID}`);
           });
@@ -71,6 +71,9 @@ const window = Dimensions.get('window');
             <Button BGcolor="#3b5998" onPress={this.fbLogin}>
               W/ FACEBOOK
             </Button>
+            <Text style={Styles.fonts.appName}>
+              {UserStore.authorized}
+            </Text>
           </Col>
         </Row>
       </Grid>
