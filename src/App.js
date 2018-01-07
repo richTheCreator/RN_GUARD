@@ -23,13 +23,11 @@ const App = () => (
         key="SignIn"
         component={SignIn}
         hideNavBar
-        onSignIn="doAuth"
       />
       <Scene
         key="SignUp"
         component={SignUp}
         hideNavBar
-        onSignUp="doSignUp"
       />
     </Modal>
   </Router>

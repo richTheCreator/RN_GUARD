@@ -1,4 +1,4 @@
-package com.streaks;
+package com.rnguard;
 
 import android.app.Application;
 

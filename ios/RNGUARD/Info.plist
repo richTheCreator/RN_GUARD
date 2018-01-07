@@ -5,7 +5,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>Streaks</string>
+    <string>RN GUARD</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -50,7 +50,7 @@
     <key>FacebookAppID</key>
     <string>152442472198930</string>
     <key>FacebookDisplayName</key>
-    <string>Streaks</string>
+    <string>RN GUARD</string>
     <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>fbapi</string>
