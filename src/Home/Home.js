@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,
   Dimensions,
   AsyncStorage,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { persist, create } from 'mobx-persist';
-import { Actions } from 'react-native-router-flux';
+import { create } from 'mobx-persist';
 import { observer } from 'mobx-react/native';
 import UserStore from '../stores/userStore';
 import Styles from './Styles';
@@ -17,12 +14,12 @@ import { Avatar, Button } from '../components/Common';
 
 const window = Dimensions.get('window');
 const hydrate = create({ storage: AsyncStorage });
-hydrate('userData', UserStore)
+hydrate('userData', UserStore);
+// hydrate('authorized', UserStore);
 
 @observer class Home extends Component {
  handleSignOut = () => {
    UserStore.logout();
-   Actions.Landing();
  }
 
  handleApiCall = () => {

@@ -3,6 +3,7 @@ import {
   Text,
   Image,
   Dimensions,
+  StatusBar
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
@@ -15,6 +16,9 @@ const window = Dimensions.get('window');
 
 const Landing = () => (
   <Grid style={Styles.container}>
+    <StatusBar
+      barStyle="light-content"
+    />
     <Row
       style={[Styles.wrapper, { backgroundColor: Colors.Dark }]}
     >

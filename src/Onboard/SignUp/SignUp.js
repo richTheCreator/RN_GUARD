@@ -3,6 +3,7 @@ import {
   Text,
   Dimensions,
   Image,
+  StatusBar,
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
@@ -18,9 +19,9 @@ import Icon from 'react-native-vector-icons/Feather';
 const window = Dimensions.get('window');
 
 @observer class SignUp extends Component {
-  componentWillUpdate() {
+  componentWillReceiveProps(nextProps) {
+    console.warn('nextProps', nextProps);
     // waiting for access token to be set
-    // console.warn('UPDATED', UserStore)
     if (UserStore.authorized) {
       Actions.Home();
     }
@@ -48,6 +49,9 @@ const window = Dimensions.get('window');
   render() {
     return (
       <Grid style={Styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+        />
         <Row style={Styles.modalHeader}>
           <Icon
             name="x"

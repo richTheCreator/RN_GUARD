@@ -1,16 +1,30 @@
 import { AsyncStorage } from 'react-native';
-import { observable, action, observer } from 'mobx';
+import { observable, action, reaction } from 'mobx';
 import { autobind } from 'core-decorators';
 import { persist } from 'mobx-persist';
+import { Actions } from 'react-native-router-flux';
+
 import axios from 'axios';
 import { SIGNUP_URL, SIGNIN_URL, SUPER_SECRET_API } from './api';
 
-// @observer
 @autobind
 class UserStore {
   @observable uid = '';
-  @observable authorized = false;
+  @observable authorized = null;
   @persist('object') @observable userData = undefined;
+
+  constructor() {
+    // listen for store changes
+    // reaction(() => {
+    //   // Handle auth
+    //
+    // });
+    reaction(() =>
+      this.authorized, (authorized) => {
+      console.warn('REACTION_AUTH', authorized);
+      authorized ? Actions.Home() : Actions.Landing();
+    });
+  }
   /** ** SIGN IN FLOW *** */
 
   // make the call to the FBSDK - ( done in signUp component )
@@ -62,10 +76,10 @@ class UserStore {
   //   return false;
   // };
 
-  @action signIn = async (FBtoken) => {
+  // @action
+  signIn = async (FBtoken) => {
     if (FBtoken) {
       this.fetchUser(FBtoken).then((data) => {
-        console.warn('USER_FETCHED', data.data.user);
         this.userData = data.data.user;
         this.save(FBtoken);
         this.authorized = true;
@@ -110,6 +124,7 @@ class UserStore {
     // }).catch(err => console.warn('ERR_SECRET_ROUTE:', err));
   }
 
+  // @action
   logout = async () => {
     await this.remove();
     this.authorized = false;
