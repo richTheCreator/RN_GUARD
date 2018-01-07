@@ -13,7 +13,6 @@ import Logo from '../../assets/images/KEY_SHIELD.png';
 import { Button } from '../../components/Common';
 import Styles from '../Landing/Styles';
 import UserStore from '../../stores/userStore';
-import Colors from '../../assets/Globals';
 import Icon from 'react-native-vector-icons/Feather';
 
 const window = Dimensions.get('window');

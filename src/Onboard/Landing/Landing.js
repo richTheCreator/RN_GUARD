@@ -10,7 +10,7 @@ import { Actions } from 'react-native-router-flux';
 import Logo from '../../assets/images/RN_GUARD.png';
 import { Button } from '../../components/Common';
 import Styles from './Styles';
-import { Colors } from '../../assets/Globals';
+import { Colors } from '@theme/';
 
 const window = Dimensions.get('window');
 

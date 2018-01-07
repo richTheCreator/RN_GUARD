@@ -1,4 +1,4 @@
-import { Colors, Fonts } from '../../assets/Globals';
+import { Colors, Fonts } from '@theme/';
 
 const tagline = {
   ...Fonts.instructions,

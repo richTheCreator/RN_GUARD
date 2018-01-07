@@ -1,4 +1,4 @@
-import { Fonts, Colors } from '../../../assets/Globals';
+import { Fonts, Colors } from '@theme/';
 
 const btn = {
   ...Fonts.btn,
