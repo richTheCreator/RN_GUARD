@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
 import {
   Text,
-  View,
+  StatusBar,
   Dimensions,
   Image
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
-import { observer } from 'mobx-react/native';
+import { observer, autorun } from 'mobx-react/native';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Logo from '../../assets/images/KEY_SHIELD.png';
 import { Button } from '../../components/Common';
 import Styles from '../Landing/Styles';
 import UserStore from '../../stores/userStore';
-import Colors from '../../assets/Globals';
 import Icon from 'react-native-vector-icons/Feather';
 
 const window = Dimensions.get('window');
 
 @observer class SignIn extends Component {
-  componentWillUpdate() {
-    // waiting for access token to be set
-    if (UserStore.authorized) {
-      Actions.reset();
-    }
-  }
+  // componentWillUpdate() {
+  //   // waiting for access token to be set
+  //   if (UserStore.authorized) {
+  //     Actions.Home();
+  //   }
+  // }
 
   fbLogin = () => {
     LoginManager.logInWithReadPermissions(['public_profile']).then(
@@ -48,6 +47,9 @@ const window = Dimensions.get('window');
   render() {
     return (
       <Grid style={Styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+        />
         <Row style={Styles.modalHeader}>
           <Icon
             name="x"

@@ -1,7 +1,7 @@
 import {
   Dimensions,
 } from 'react-native';
-import { Colors, Fonts } from '../../assets/Globals';
+import { Colors, Fonts } from '@theme/';
 
 const window = Dimensions.get('window');
 

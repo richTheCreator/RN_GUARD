@@ -1,4 +1,4 @@
-import { Colors } from '../../../assets/Globals';
+import { Colors } from '@theme/';
 
 
 const Styles = {
