@@ -1,6 +1,6 @@
 # RN_GUARD
 
-![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/rn_guard.gif?raw=true)
+![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/rn_guard_compressed.gif?raw=truee)
 
 ### Motivation :bulb:
 
