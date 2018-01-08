@@ -57,6 +57,7 @@ class UserStore {
 
   signIn = async (FBtoken) => {
     if (FBtoken) {
+      // replace from here down with custom server code
       this.fetchUser(FBtoken).then((data) => {
         this.userData = data.data.user;
         this.save(FBtoken);
@@ -68,6 +69,7 @@ class UserStore {
 
   signUp = async (FBtoken) => {
     if (FBtoken) {
+      // replace from here down with custom server code
       this.createUser(FBtoken).then((data) => {
         if (data.data.user.alreadyCreated) {
           alert('A user already exists with this info.');
