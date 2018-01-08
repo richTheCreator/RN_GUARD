@@ -6,7 +6,7 @@ RNG is intended to be a source of inspiration for building your own react-native
 > Defend your app, take your shield!🛡
 
 ### ⚔️ Tools 
-Built for the modern RN developer. 
+> Built for the modern RN developer. 
 
 :white_check_mark: ES6 <br/>
 :white_check_mark: Eslint <br/>
@@ -19,7 +19,7 @@ Built for the modern RN developer.
 :white_check_mark: React-Native-Vector-Icons <br/>
 
 ###  :art: Simple Theming
-> "Update once, update everywhere."
+> "Update once, update everywhere."<br/>
 Start a consistent design system from the start. 
 
 #### How To
