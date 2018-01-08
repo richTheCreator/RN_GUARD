@@ -46,7 +46,7 @@ Change these few files and functions:
 2. Replace `signIn`, `signUp`, `createUser`, and `fetchUser`
 3. Update `api.js` with your server address
 
-### beginner: Getting Started
+### :beginner: Getting Started
 
 #### Step 1: Install React-Native
 
