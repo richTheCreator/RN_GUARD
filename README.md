@@ -20,6 +20,7 @@ RNG is intended to be a source of inspiration for building your own react-native
 
 ###  :art: Simple Theming
 > "Update once, update everywhere."<br/>
+
 Start a consistent design system from the start. 
 
 #### How To
