@@ -4,11 +4,11 @@
 
 ### Motivation :bulb:
 
-Reactpack is intended to be a source of inspiration for building your own react-native application. A backpack full of commonly used design patterns, components, interactions, and more. 
+RNG is intended to be a source of inspiration for building your own react-native application. A backpack full of commonly used design patterns, components, interactions, and more. 
 
-> Don't get lost building your app, take your backpack. :school_satchel:
+> Defend your app, take your shield!🛡
 
-### Tools :fire:
+### ⚔️ Tools 
 Built for the modern RN developer. 
 
 :white_check_mark: ES6 <br/>
@@ -22,25 +22,23 @@ Built for the modern RN developer.
 :white_check_mark: React-Native-Vector-Icons <br/>
 
 
-### Simple Theming :art:
+###  :art: Simple Theming
 > "Update once, update everywhere."
 Start a consistent design system from the start. 
 
 #### How To
 Create or copy a folder that includes: <br/>
 
-:white_check_mark: Index.js <br/>
-:white_check_mark: Styles.js <br/>
-:white_check_mark: Component.js <br/>
+📄 Index.js <br/>
+📄 Styles.js <br/>
+📄 Component.js <br/>
 
-In `Styles.js` place at the top<br/>
-`import { Colors, Fonts } from '@theme/'`
+In `Styles.js` place `import { Colors, Fonts } from '@theme/'`
 
-In `Component.js` place at the top<br/>
-`import Styles from './Styles'`
+In `Component.js` place `import Styles from './Styles'`
 
 
-### Secure Routing 🛡
+### 🛡 Secure Routing 
 The router is protected with a combination of the `fb-sdk`, `mobx`, `mobx-persist`, and `react-native-router-flux`. 
 
 #### RP_Server: <br/>
@@ -55,7 +53,7 @@ Change these few files and functions:
 
 
 
-## :arrow_down: Install
+### :arrow_down: Install
 
 ### Step 1: Install React-Native
 
