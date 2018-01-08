@@ -1,6 +1,7 @@
+![RNG](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/banner.png?raw=true)
 ### Motivation :bulb:
 
-RNG is intended to be a source of inspiration for building your own react-native application. A backpack full of commonly used design patterns, components, interactions, and more. 
+RNG is intended to be a source of inspiration for building your own react-native application. It has enough that you can move past the "what should I use" phase and right into building!
 
 > Defend your app, take your shield!🛡
 
@@ -45,13 +46,13 @@ Change these few files and functions:
 2. Replace `signIn`, `signUp`, `createUser`, and `fetchUser`
 3. Update `api.js` with your server address
 
-#### :arrow_down: Install
+### :arrow_down: Install
 
-### Step 1: Install React-Native
+#### Step 1: Install React-Native
 
 Make sure you're set up for [React Native](https://facebook.github.io/react-native/docs/getting-started.html#content)
 
-### Step 2: Node Version
+#### Step 2: Node Version
 Make sure you have Node 6.5+ <br/>
 
 You can check your version of node by running
@@ -60,17 +61,17 @@ You can check your version of node by running
 node -v
 ```
 
-### Step 3: Install Yarn
+#### Step 3: Install Yarn
 
 Install [Yarn](https://yarnpkg.com/lang/en/docs/install/) for your system
 
-### Step 4: Server Setup
+#### Step 4: Server Setup
 
 Head over to the [repo ](https://facebook.github.io/react-native/docs/getting-started.html#content) and follow the install instructions.
 
 or provide your own server :smile:
 
-### Step 5: Install the FBsdk
+#### Step 5: Install the FBsdk
 Make sure you have followed all the steps in the [React-Native-Fbsdk](https://github.com/facebook/react-native-fbsdk)
  
  A couple of tips!
