@@ -80,7 +80,7 @@ Make sure you have followed all the steps in the [React-Native-Fbsdk](https://gi
  4. Check your `info.plist` for proper credentials
  5. Open an issue if all else fails
 
-### Example:
+### 📱 Demo:
 
 ![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/rn_guard_compressed.gif?raw=truee)
 
