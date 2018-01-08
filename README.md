@@ -24,9 +24,9 @@ Start a consistent design system from the start.
 #### How To
 Create or copy a folder that includes: <br/>
 
-📄 Index.js <br/>
-📄 Styles.js <br/>
-📄 Component.js <br/>
+1. Index.js <br/>
+2. Styles.js <br/>
+3. Component.js <br/>
 
 In `Styles.js` place `import { Colors, Fonts } from '@theme/'`
 
