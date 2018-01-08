@@ -3,6 +3,7 @@
 RNG is intended to be a source of inspiration for building your own react-native application. A backpack full of commonly used design patterns, components, interactions, and more. 
 
 > Defend your app, take your shield!🛡
+
 ---
 
 ### ⚔️ Tools 
@@ -17,11 +18,13 @@ Built for the modern RN developer.
 :white_check_mark: React-Native-Router-Flux <br/>
 :white_check_mark: React-Native-Easy-Grid <br/>
 :white_check_mark: React-Native-Vector-Icons <br/>
+
 ---
 
 ###  :art: Simple Theming
 > "Update once, update everywhere."
 Start a consistent design system from the start. 
+
 ---
 
 #### How To
@@ -34,14 +37,17 @@ Create or copy a folder that includes: <br/>
 In `Styles.js` place `import { Colors, Fonts } from '@theme/'`
 
 In `Component.js` place `import Styles from './Styles'`
+
 ---
 
 ### 🛡 Secure Routing 
 The router is protected with a combination of the `fb-sdk`, `mobx`, `mobx-persist`, and `react-native-router-flux`. 
+
 ---
 
 #### RP_Server: <br/>
 In order for this to work, you need to also download and install the [RP_Server](https://github.com/richTheCreator/RNG-SERVER). 
+
 ---
 
 #### Custom Server: <br/>
@@ -50,6 +56,7 @@ Change these few files and functions:
 1. Open `userStore.js` 
 2. Replace `signIn`, `signUp`, `createUser`, and `fetchUser`
 3. Update `api.js` with your server address
+
 ---
 
 ### :arrow_down: Install
@@ -86,11 +93,13 @@ Make sure you have followed all the steps in the [React-Native-Fbsdk](https://gi
  3. If no path, drag your `FacebookSDK` folder from `~/Documents` in
  4. Check your `info.plist` for proper credentials
  5. Open an issue if all else fails
+
 ---
 
 ### Example:
 
 ![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/rn_guard_compressed.gif?raw=truee)
+
 ---
 
 ## :star: Let me know if this helped :star:
