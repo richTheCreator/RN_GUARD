@@ -46,13 +46,13 @@ Change these few files and functions:
 2. Replace `signIn`, `signUp`, `createUser`, and `fetchUser`
 3. Update `api.js` with your server address
 
-### :arrow_down: Install
+### beginner: Getting Started
 
 #### Step 1: Install React-Native
 
 Make sure you're set up for [React Native](https://facebook.github.io/react-native/docs/getting-started.html#content)
 
-#### Step 2: Node Version
+#### Step 2: Check Node Version
 Make sure you have Node 6.5+ <br/>
 
 You can check your version of node by running
@@ -61,9 +61,18 @@ You can check your version of node by running
 node -v
 ```
 
-#### Step 3: Install Yarn
+#### Step 3: Run 
 
-Install [Yarn](https://yarnpkg.com/lang/en/docs/install/) for your system
+```
+yarn
+```
+If you don't have it, install [Yarn](https://yarnpkg.com/lang/en/docs/install/) for your system.
+
+#### Step 4: Link
+
+```
+rnpm link
+```
 
 #### Step 4: Server Setup
 
