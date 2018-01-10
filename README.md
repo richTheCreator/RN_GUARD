@@ -13,8 +13,9 @@ RNG is intended to be a source of inspiration for building your own react-native
 :white_check_mark: Axios <br/>
 :white_check_mark: MobX <br/>
 :white_check_mark: MobX-Persist <br/>
+:white_check_mark: React-Native V0.51.0 <br/>
 :white_check_mark: React-Native-FBsdk <br/>
-:white_check_mark: React-Native-Router-Flux <br/>
+:white_check_mark: React-Native-Router-Flux V4<br/>
 :white_check_mark: React-Native-Easy-Grid <br/>
 :white_check_mark: React-Native-Vector-Icons <br/>
 
