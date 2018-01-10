@@ -37,8 +37,8 @@ In `Component.js` place `import Styles from './Styles'`
 ### 🛡 Secure Routing 
 The router is protected with a combination of the `fb-sdk`, `mobx`, `mobx-persist`, and `react-native-router-flux`. 
 
-#### RP_Server: <br/>
-In order for this to work, you need to also download and install the [RP_Server](https://github.com/richTheCreator/RNG-SERVER). 
+#### RNG-Server: <br/>
+In order for this to work, you need to also download and install the [RNG-Server](https://github.com/richTheCreator/RNG-SERVER). 
 
 #### Custom Server: <br/>
 Change these few files and functions: 
