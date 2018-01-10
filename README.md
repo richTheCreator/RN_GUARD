@@ -4,7 +4,15 @@
 RNG is intended to be a source of inspiration for building your own react-native application. It has enough that you can move past the "what should I use" phase and right into building!
 
 > Defend your app, take your shield!🛡
+### Contents
+1. <a href="#tools"> Tools </a>
+2. <a href="#theme"> Theming </a>
+3. <a href="#router"> Routing </a>
+4. <a href="#getstarted"> Getting Started </a>
+5. <a href="#demo"> Demo </a>
 
+
+<div id="tools"/>
 ### ⚔️ Tools 
 > Built for the modern RN developer. 
 
@@ -19,6 +27,7 @@ RNG is intended to be a source of inspiration for building your own react-native
 :white_check_mark: React-Native-Easy-Grid <br/>
 :white_check_mark: React-Native-Vector-Icons <br/>
 
+<div id="theme"/>
 ###  :art: Simple Theming
 > "Update once, update everywhere."<br/>
 
@@ -35,6 +44,7 @@ In `Styles.js` place `import { Colors, Fonts } from '@theme/'`
 
 In `Component.js` place `import Styles from './Styles'`
 
+<div id="router"/>
 ### 🛡 Secure Routing 
 The router is protected with a combination of the `fb-sdk`, `mobx`, `mobx-persist`, and `react-native-router-flux`. 
 
@@ -48,6 +58,7 @@ Change these few files and functions:
 2. Replace `signIn`, `signUp`, `createUser`, and `fetchUser`
 3. Update `api.js` with your server address
 
+<div id="getstarted"/>
 ### :beginner: Getting Started
 
 #### Step 1: Install React-Native
@@ -75,7 +86,6 @@ If you don't have it, install [Yarn](https://yarnpkg.com/lang/en/docs/install/) 
 ```
 rnpm link
 ```
-
 #### Step 4: Server Setup
 
 Head over to the [repo ](https://facebook.github.io/react-native/docs/getting-started.html#content) and follow the install instructions.
@@ -92,9 +102,10 @@ Make sure you have followed all the steps in the [React-Native-Fbsdk](https://gi
  4. Check your `info.plist` for proper credentials
  5. Open an issue if all else fails
 
+<div id="demo"/>
 ### 📱 Demo:
 
-![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/rn_guard_compressed.gif?raw=truee)
+![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/RNG-giphy.gif?raw=true)
 
 ## :star: Let me know if this helped :star:
 I know I forget to star repos from time to time, but please do if this helped!
