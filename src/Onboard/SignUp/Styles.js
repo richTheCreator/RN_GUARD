@@ -1,8 +1,10 @@
+import { Dimensions } from 'react-native';
 import { Colors, Fonts } from '@theme/';
 
-const tagline = {
-  ...Fonts.instructions,
-  textAlign: 'center'
+const window = Dimensions.get('window');
+
+const title = {
+  ...Fonts.title
 };
 
 const btn = {
@@ -10,31 +12,27 @@ const btn = {
   paddingRight: 16,
   textAlign: 'right'
 };
+
 const Styles = {
-  container: {
-    flex: 1,
-  },
-  wrapper: {
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    justifyContent: 'center'
-  },
-  buttonWrapper: {
-    flex: -1,
-    alignItems: 'flex-end',
-    padding: 34,
-    justifyContent: 'flex-end',
-    position: 'absolute',
-    bottom: 0
-  },
-  btnContainer: {
-    flex: -1,
-    alignItems: 'center',
-    paddingBottom: 24,
+  ui: {
+    container: {
+      flex: 1
+    },
+    wrapper: {
+      alignItems: 'center',
+      backgroundColor: Colors.white,
+      justifyContent: 'center',
+      width: window.width,
+    },
+    lgIcon: {
+      height: 220,
+      width: 200,
+      marginBottom: 25
+    }
   },
   fonts: {
-    tagline,
-    btn,
+    title,
+    btn
   }
 };
 

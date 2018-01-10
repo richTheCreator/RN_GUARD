@@ -12,7 +12,7 @@ const Avatar = (props) => {
     <Col style={{ paddingRight: 10 }} size={-1} >
       <Image
         imageResizeMode="contain"
-        style={[Styles.layout.avatar, {
+        style={[Styles.ui.avatar, {
               height: size,
               width: size,
               borderRadius: size / 2

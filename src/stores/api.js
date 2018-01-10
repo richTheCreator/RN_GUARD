@@ -1,8 +1,7 @@
 // for testing on iPhone
-// const API_URL = 'http://192.168.1.66:3000/d';
-// const API_URL_AUTH = 'http://192.168.1.66:3000/d/main';
+// const API_URL_AUTH = 'http://192.168.1.66:3000/d';
 
-// for testing in browser
+// for testing on computer
 const API_URL_AUTH = 'http://localhost:3000/d';
 
 // SIGNIN/SIGN UP ROUTES
