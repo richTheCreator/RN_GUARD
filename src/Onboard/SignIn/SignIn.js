@@ -3,7 +3,8 @@ import {
   Text,
   StatusBar,
   Dimensions,
-  Image
+  Image,
+  SafeAreaView
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Actions } from 'react-native-router-flux';
@@ -47,37 +48,39 @@ const window = Dimensions.get('window');
   render() {
     return (
       <Grid style={Styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-        />
-        <Row style={Styles.modalHeader}>
-          <Icon
-            name="x"
-            color="#333845"
-            size={40}
-            onPress={Actions.pop}
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#FFF' }}>
+          <StatusBar
+            barStyle="dark-content"
           />
-        </Row>
-        <Row
-          style={[Styles.wrapper, { width: window.width, height: window.height }]}
-        >
-          <Col style={{ alignItems: 'center' }}>
-            <Image
-              style={{ height: 220, width: 200, marginBottom: 25 }}
-              source={Logo}
-              imageResizeMode="contain"
+          <Row style={{ flex: -1 }}>
+            <Icon
+              name="x"
+              color="#333845"
+              size={40}
+              onPress={Actions.pop}
             />
-            <Text style={Styles.fonts.appName}>
+          </Row>
+          <Row
+            style={[Styles.wrapper, { width: window.width, height: window.height }]}
+          >
+            <Col style={{ alignItems: 'center' }}>
+              <Image
+                style={{ height: 220, width: 200, marginBottom: 25 }}
+                source={Logo}
+                imageResizeMode="contain"
+              />
+              <Text style={Styles.fonts.appName}>
             SIGN IN
-            </Text>
-            <Button BGcolor="#3b5998" onPress={this.fbLogin}>
+              </Text>
+              <Button BGcolor="#3b5998" onPress={this.fbLogin}>
               W/ FACEBOOK
-            </Button>
-            <Text style={Styles.fonts.appName}>
-              {UserStore.authorized}
-            </Text>
-          </Col>
-        </Row>
+              </Button>
+              <Text style={Styles.fonts.appName}>
+                {UserStore.authorized}
+              </Text>
+            </Col>
+          </Row>
+        </SafeAreaView>
       </Grid>
 
     );

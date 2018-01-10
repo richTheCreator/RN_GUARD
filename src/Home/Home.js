@@ -3,14 +3,14 @@ import {
   Text,
   Dimensions,
   AsyncStorage,
-  ActivityIndicator
+  ActivityIndicator,
+  SafeAreaView
 } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { create } from 'mobx-persist';
 import { observer } from 'mobx-react/native';
 import UserStore from '../stores/userStore';
 import Styles from './Styles';
-import { Colors } from '@theme/';
 import { Avatar, Button } from '../components/Common';
 
 const window = Dimensions.get('window');
@@ -30,35 +30,37 @@ hydrate('userData', UserStore);
  render() {
    return (
      <Grid style={Styles.container}>
-       <Row
-         style={[Styles.wrapper, { width: window.width, height: window.height }]}
-       >
-         <Col style={Styles.alignCenter}>
-           {UserStore.userData !== undefined ?
-             <Col style={[Styles.alignCenter, { marginBottom: 50 }]}>
-               <Avatar source={UserStore.userData.avatar} size={100} />
-               <Text style={Styles.fonts.tagline}>
+       <SafeAreaView style={{ flex: 1, backgroundColor: '#CCC' }}>
+         <Row
+           style={[Styles.wrapper, { width: window.width, height: window.height }]}
+         >
+           <Col style={Styles.alignCenter}>
+             {UserStore.userData !== undefined ?
+               <Col style={[Styles.alignCenter, { marginBottom: 50 }]}>
+                 <Avatar source={UserStore.userData.avatar} size={100} />
+                 <Text style={Styles.fonts.tagline}>
                  Welcome {'\n'} {UserStore.userData.fullname}!
-               </Text>
-             </Col> :
-             <Col style={[Styles.alignCenter, { marginBottom: 50 }]}>
-               <ActivityIndicator />
-             </Col>
+                 </Text>
+               </Col> :
+               <Col style={[Styles.alignCenter, { marginBottom: 50 }]}>
+                 <ActivityIndicator />
+               </Col>
            }
-           <Button
-             BGcolor={Colors.Green}
-             onPress={this.handleSignOut}
-           >
+             <Button
+               BGcolor={Colors.Green}
+               onPress={this.handleSignOut}
+             >
              Sign Out
-           </Button>
-           <Button
-             BGcolor={Colors.Purple}
-             onPress={this.handleApiCall}
-           >
+             </Button>
+             <Button
+               BGcolor={Colors.Purple}
+               onPress={this.handleApiCall}
+             >
              Super Secret!
-           </Button>
-         </Col>
-       </Row>
+             </Button>
+           </Col>
+         </Row>
+       </SafeAreaView>
      </Grid>
 
    );
