@@ -1,9 +1,12 @@
+import { Dimensions } from 'react-native';
 import { Colors, Fonts } from '@theme/';
 
-const tagline = {
-  ...Fonts.instructions,
+const window = Dimensions.get('window');
+
+const body = {
+  ...Fonts.body,
   textAlign: 'center',
-  marginTop: 40,
+  marginTop: 40
 };
 
 const btn = {
@@ -13,35 +16,25 @@ const btn = {
 };
 
 const Styles = {
-  container: {
-    flex: 1,
-  },
-  wrapper: {
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    justifyContent: 'center'
-  },
-  buttonWrapper: {
-    flex: -1,
-    alignItems: 'flex-end',
-    padding: 34,
-    justifyContent: 'flex-end',
-    position: 'absolute',
-    bottom: 0
-  },
-  btnContainer: {
-    flex: -1,
-    alignItems: 'center',
-    paddingBottom: 24,
-  },
-  alignCenter: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: -1
+  ui: {
+    wrapper: {
+      alignItems: 'center',
+      backgroundColor: Colors.white,
+      justifyContent: 'center',
+      width: window.width
+    },
+    container: {
+      flex: 1
+    },
+    alignCenter: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: -1
+    }
   },
   fonts: {
-    tagline,
-    btn,
+    body,
+    btn
   }
 };
 

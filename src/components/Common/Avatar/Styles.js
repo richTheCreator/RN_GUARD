@@ -2,7 +2,7 @@ import { Colors } from '@theme/';
 
 
 const Styles = {
-  layout: {
+  ui: {
     avatar: {
       backgroundColor: Colors.offWhite,
       borderWidth: 1,

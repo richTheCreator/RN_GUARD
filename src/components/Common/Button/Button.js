@@ -8,7 +8,7 @@ const Button = (props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[Styles.btnMain, { backgroundColor: BGcolor }]}
+      style={[Styles.ui.btnMain, { backgroundColor: BGcolor }]}
     >
       <View>
         <Text

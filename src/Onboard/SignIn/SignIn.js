@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
 import {
   Text,
-  StatusBar,
-  Dimensions,
   Image,
-  SafeAreaView
 } from 'react-native';
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Actions } from 'react-native-router-flux';
-import { observer, autorun } from 'mobx-react/native';
+import { Col, Row } from 'react-native-easy-grid';
+import { observer } from 'mobx-react/native';
+import { Modal, Button } from '@common';
+import { Colors } from '@theme/';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import Logo from '../../assets/images/KEY_SHIELD.png';
-import { Button } from '../../components/Common';
-import Styles from '../Landing/Styles';
+import Styles from './Styles';
 import UserStore from '../../stores/userStore';
-import Icon from 'react-native-vector-icons/Feather';
-
-const window = Dimensions.get('window');
 
 @observer class SignIn extends Component {
-  // componentWillUpdate() {
-  //   // waiting for access token to be set
-  //   if (UserStore.authorized) {
-  //     Actions.Home();
-  //   }
-  // }
-
   fbLogin = () => {
     LoginManager.logInWithReadPermissions(['public_profile']).then(
       (result) => {
@@ -34,8 +21,6 @@ const window = Dimensions.get('window');
         } else {
           AccessToken.getCurrentAccessToken().then((data) => {
             UserStore.signIn(data.accessToken);
-            // alert(`FB_TOKEN: ${data.accessToken}
-            //   FB_ID:${data.userID}`);
           });
         }
       },
@@ -47,42 +32,25 @@ const window = Dimensions.get('window');
 
   render() {
     return (
-      <Grid style={Styles.container}>
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#FFF' }}>
-          <StatusBar
-            barStyle="dark-content"
-          />
-          <Row style={{ flex: -1 }}>
-            <Icon
-              name="x"
-              color="#333845"
-              size={40}
-              onPress={Actions.pop}
+      <Modal>
+        <Row
+          style={Styles.ui.wrapper}
+        >
+          <Col style={{ alignItems: 'center' }}>
+            <Image
+              style={Styles.ui.lgIcon}
+              source={Logo}
+              imageResizeMode="contain"
             />
-          </Row>
-          <Row
-            style={[Styles.wrapper, { width: window.width, height: window.height }]}
-          >
-            <Col style={{ alignItems: 'center' }}>
-              <Image
-                style={{ height: 220, width: 200, marginBottom: 25 }}
-                source={Logo}
-                imageResizeMode="contain"
-              />
-              <Text style={Styles.fonts.appName}>
-            SIGN IN
-              </Text>
-              <Button BGcolor="#3b5998" onPress={this.fbLogin}>
+            <Text style={Styles.fonts.title}>
+              SIGN IN
+            </Text>
+            <Button BGcolor={Colors.FBblue} onPress={this.fbLogin}>
               W/ FACEBOOK
-              </Button>
-              <Text style={Styles.fonts.appName}>
-                {UserStore.authorized}
-              </Text>
-            </Col>
-          </Row>
-        </SafeAreaView>
-      </Grid>
-
+            </Button>
+          </Col>
+        </Row>
+      </Modal>
     );
   }
 }

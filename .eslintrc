@@ -12,6 +12,7 @@
   "plugins": ["react"],
   "rules": {
     "comma-dangle": 0,
+    "import/no-extraneous-dependencies": "off",
     "react/require-default-props": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
