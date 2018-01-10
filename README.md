@@ -13,6 +13,7 @@ RNG is intended to be a source of inspiration for building your own react-native
 
 
 <div id="tools"/>
+
 ### ⚔️ Tools 
 > Built for the modern RN developer. 
 
@@ -28,6 +29,7 @@ RNG is intended to be a source of inspiration for building your own react-native
 :white_check_mark: React-Native-Vector-Icons <br/>
 
 <div id="theme"/>
+
 ###  :art: Simple Theming
 > "Update once, update everywhere."<br/>
 
@@ -45,6 +47,7 @@ In `Styles.js` place `import { Colors, Fonts } from '@theme/'`
 In `Component.js` place `import Styles from './Styles'`
 
 <div id="router"/>
+
 ### 🛡 Secure Routing 
 The router is protected with a combination of the `fb-sdk`, `mobx`, `mobx-persist`, and `react-native-router-flux`. 
 
@@ -59,6 +62,7 @@ Change these few files and functions:
 3. Update `api.js` with your server address
 
 <div id="getstarted"/>
+
 ### :beginner: Getting Started
 
 #### Step 1: Install React-Native
@@ -103,6 +107,7 @@ Make sure you have followed all the steps in the [React-Native-Fbsdk](https://gi
  5. Open an issue if all else fails
 
 <div id="demo"/>
+
 ### 📱 Demo:
 
 ![RN_GUARD](https://github.com/richTheCreator/RN_GUARD/blob/master/src/assets/images/RNG-giphy.gif?raw=true)
